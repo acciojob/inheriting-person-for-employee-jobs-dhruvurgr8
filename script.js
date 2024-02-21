@@ -30,13 +30,15 @@ describe('Person and Employee Test', () => {
     cy.getPersonClass().then((PersonClass) => {
       const person1 = new PersonClass("Alice", 25);
       person1.greet();
-      cy.log("Hello, my name is Alice, I am 25 years old."); // Cypress log assertion
+      cy.log("Hello, my name is Alice, I am 25 years old.")
+        .should('be.visible'); // Cypress log assertion
     });
 
     cy.getEmployeeClass().then((EmployeeClass) => {
       const employee1 = new EmployeeClass("Bob", 30, "Manager");
       employee1.jobGreet();
-      cy.log("Hello, my name is Bob, I am 30 years old, and my job title is Manager"); // Cypress log assertion
+      cy.log("Hello, my name is Bob, I am 30 years old, and my job title is Manager")
+        .should('be.visible'); // Cypress log assertion
     });
   });
 });
